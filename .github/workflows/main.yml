@@ -1,0 +1,30 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: Run a multi-line script
+      run: |
+        echo Add other actions to build,
+        echo test, and deploy your project.
+    - name: Codecov
+      uses: codecov/codecov-action@v1.0.4
+      with:
+        # User defined upload name. Visible in Codecov UI
+        name: Code cov test# optional
+        # Repository upload token - get it from codecov.io
+        token: f3d3306d8d7f4bdb943ba7320290ca44
+        # Path to coverage file to upload
+        file: unittests # optional
+        # Flag upload to group coverage metrics (e.g. unittests | integration | ui,chrome)
+        #flags: # optional
+        # Specify the location of the .codecov.yml config file
+       # yml: # optional
